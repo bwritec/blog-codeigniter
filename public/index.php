@@ -5,11 +5,16 @@
 
     /**
      *---------------------------------------------------------------
-     * CHECK PHP VERSION
+     * VERIFICAR VERSÃO DO PHP
      *---------------------------------------------------------------
      */
 
-    $minPhpVersion = '8.2'; // If you update this, don't forget to update `spark`.
+    /**
+     * Se você atualizar isso, não se esqueça de atualizar
+     * o `spark`.
+     */
+    $minPhpVersion = '8.2';
+
     if (version_compare(PHP_VERSION, $minPhpVersion, '<'))
     {
         $message = sprintf(
@@ -40,14 +45,19 @@
 
     /**
      *---------------------------------------------------------------
-     * SET THE CURRENT DIRECTORY
+     * DEFINIR O DIRETÓRIO ATUAL
      *---------------------------------------------------------------
      */
 
-    // Path to the front controller (this file)
+    /**
+     * Caminho para o front controller (este arquivo)
+     */
     define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
 
-    // Ensure the current directory is pointing to the front controller's directory
+    /**
+     * Certifique-se de que o diretório atual aponte
+     * para o diretório do controller frontal.
+     */
     if (getcwd() . DIRECTORY_SEPARATOR !== FCPATH)
     {
         chdir(FCPATH);
@@ -55,21 +65,28 @@
 
     /**
      *---------------------------------------------------------------
-     * BOOTSTRAP THE APPLICATION
+     * BOOTSTRAP A APLICAÇÃO
      *---------------------------------------------------------------
-     * This process sets up the path constants, loads and registers
-     * our autoloader, along with Composer's, loads our constants
-     * and fires up an environment-specific bootstrapping.
+     * Este processo define as constantes de caminho, carrega e
+     * registra nosso autoloader — juntamente com o do Composer —,
+     * carrega nossas constantes e inicia o processo de
+     * inicialização (*bootstrapping*) específico para o ambiente.
      */
 
-    // LOAD OUR PATHS CONFIG FILE
-    // This is the line that might need to be changed, depending on your folder structure.
+    /**
+     * Carregar nosso arquivo de configuração de caminhos
+     * Esta é a linha que talvez precise ser alterada,
+     * dependendo da estrutura de pastas.
+     */
     require FCPATH . '../app/Config/Paths.php';
-    // ^^^ Change this line if you move your application folder
+    // ^^^ Altere esta linha se você mover a pasta da sua aplicação.
 
     $paths = new Paths();
 
-    // LOAD THE FRAMEWORK BOOTSTRAP FILE
+    /**
+     * Carregue o arquivo de inicialização (bootstrap)
+     * do framework.
+     */
     require $paths->systemDirectory . '/Boot.php';
 
     exit(Boot::bootWeb($paths));
