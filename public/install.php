@@ -1176,7 +1176,6 @@
                                         <li>Informações do banco de dados</li>
                                         <li>Informações do servidor smtp</li>
                                         <li>Informações da app</li>
-                                        <li>Informações de tokens de serviços</li>
                                     </ol>
 
                                     <p>
@@ -1184,8 +1183,8 @@
                                         <strong>.env</strong>. Se por algum motivo a criação
                                         automática deste arquivo não funcionar, não se preocupe.
                                         Tudo que isto faz é preencher as informações do banco de
-                                        dados, smtp, app e token's de serviços em um arquivo de
-                                        configuração. Você também pode simplesmente abrir
+                                        dados, smtp e app em um arquivo de configuração. Você
+                                        também pode simplesmente abrir
                                         <strong>.env.sample</strong> em um editor de texto,
                                         preencher suas informações e salvar como
                                         <strong>.env</strong>.
