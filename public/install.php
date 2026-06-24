@@ -347,7 +347,6 @@
                      */
                     setEnvValue("app.name", $_POST["app_name"]);
                     setEnvValue("app.baseURL", $_POST["app_url"]);
-                    setEnvValue("app.rate", $_POST["app_rate"]);
 
                     /**
                      * Database.
@@ -374,11 +373,6 @@
                     {
                         setEnvValue("email.protocol", "smtp");
                     }
-
-                    /**
-                     * Token.
-                     */
-                    setEnvValue("melhorenvio.token", $_POST["token_melhorenvio"]);
 
                     /**
                      * Others.
@@ -808,12 +802,6 @@
                                                 </li>
 
                                                 <li class="nav-item" role="presentation">
-                                                    <button class="nav-link" id="token-tab" data-bs-toggle="tab" data-bs-target="#token" type="button" role="tab">
-                                                        Token
-                                                    </button>
-                                                </li>
-
-                                                <li class="nav-item" role="presentation">
                                                     <button class="nav-link" id="others-tab" data-bs-toggle="tab" data-bs-target="#others" type="button" role="tab">
                                                         Outros
                                                     </button>
@@ -848,28 +836,6 @@
                                                         <?php if (array_key_exists("app_url", $errors)): ?>
                                                             <div class="invalid-feedback" style="display: block;">
                                                                 <?php foreach ($errors["app_url"] as $value): ?>
-                                                                    <?= $value; ?>
-                                                                <?php endforeach; ?>
-                                                            </div>
-                                                        <?php endif; ?>
-                                                    </div>
-
-                                                    <div class="mb-3">
-                                                        <label for="app_rate" class="form-label">
-                                                            Taxa do site
-                                                        </label>
-
-                                                        <div class="input-group mb-3">
-                                                            <input type="text" name="app_rate" id="app_rate" class="form-control">
-
-                                                            <span class="input-group-text">
-                                                                %
-                                                            </span>
-                                                        </div>
-
-                                                        <?php if (array_key_exists("app_rate", $errors)): ?>
-                                                            <div class="invalid-feedback" style="display: block;">
-                                                                <?php foreach ($errors["app_rate"] as $value): ?>
                                                                     <?= $value; ?>
                                                                 <?php endforeach; ?>
                                                             </div>
@@ -1082,24 +1048,6 @@
                                                         <?php if (array_key_exists("email_crypto", $errors)): ?>
                                                             <div class="invalid-feedback" style="display: block;">
                                                                 <?php foreach ($errors["email_crypto"] as $value): ?>
-                                                                    <?= $value; ?>
-                                                                <?php endforeach; ?>
-                                                            </div>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                </div>
-
-                                                <div class="tab-pane fade" id="token" role="tabpanel">
-                                                    <div class="mb-3">
-                                                        <label for="token_melhorenvio" class="form-label">
-                                                            Melhor Envio
-                                                        </label>
-
-                                                        <textarea name="token_melhorenvio" id="token_melhorenvio" class="form-control"></textarea>
-
-                                                        <?php if (array_key_exists("token_melhorenvio", $errors)): ?>
-                                                            <div class="invalid-feedback" style="display: block;">
-                                                                <?php foreach ($errors["token_melhorenvio"] as $value): ?>
                                                                     <?= $value; ?>
                                                                 <?php endforeach; ?>
                                                             </div>
