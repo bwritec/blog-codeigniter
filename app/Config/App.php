@@ -1,202 +1,218 @@
 <?php
 
-namespace Config;
+    namespace Config;
 
-use CodeIgniter\Config\BaseConfig;
+    use CodeIgniter\Config\BaseConfig;
 
-class App extends BaseConfig
-{
-    /**
-     * --------------------------------------------------------------------------
-     * Base Site URL
-     * --------------------------------------------------------------------------
-     *
-     * URL to your CodeIgniter root. Typically, this will be your base URL,
-     * WITH a trailing slash:
-     *
-     * E.g., http://example.com/
-     */
-    public string $baseURL = 'http://localhost:8080/';
 
     /**
-     * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
-     * If you want to accept multiple Hostnames, set this.
      *
-     * E.g.,
-     * When your site URL ($baseURL) is 'http://example.com/', and your site
-     * also accepts 'http://media.example.com/' and 'http://accounts.example.com/':
-     *     ['media.example.com', 'accounts.example.com']
-     *
-     * @var list<string>
      */
-    public array $allowedHostnames = [];
+    class App extends BaseConfig
+    {
+        /**
+         * --------------------------------------------------------------------------
+         * Base Site URL
+         * --------------------------------------------------------------------------
+         *
+         * URL para a raiz do seu CodeIgniter. Normalmente, esta
+         * será a sua URL base, COM uma barra ao final:
+         *
+         * E.g., http://example.com/
+         */
+        public string $baseURL = 'http://localhost:8080/';
 
-    /**
-     * --------------------------------------------------------------------------
-     * Index File
-     * --------------------------------------------------------------------------
-     *
-     * Typically, this will be your `index.php` file, unless you've renamed it to
-     * something else. If you have configured your web server to remove this file
-     * from your site URIs, set this variable to an empty string.
-     */
-    public string $indexPage = 'index.php';
+        /**
+         * Nomes de host permitidos na URL do site, além do nome
+         * de host definido em `baseURL`. Configure esta opção se
+         * desejar aceitar múltiplos nomes de host.
+         *
+         * E.g.,
+         * Quando a URL do seu site é ($baseURL) 'http://example.com/', e o seu site
+         * também aceita 'http://media.example.com/' e 'http://accounts.example.com/':
+         *     ['media.example.com', 'accounts.example.com']
+         *
+         * @var list<string>
+         */
+        public array $allowedHostnames = [];
 
-    /**
-     * --------------------------------------------------------------------------
-     * URI PROTOCOL
-     * --------------------------------------------------------------------------
-     *
-     * This item determines which server global should be used to retrieve the
-     * URI string. The default setting of 'REQUEST_URI' works for most servers.
-     * If your links do not seem to work, try one of the other delicious flavors:
-     *
-     *  'REQUEST_URI': Uses $_SERVER['REQUEST_URI']
-     * 'QUERY_STRING': Uses $_SERVER['QUERY_STRING']
-     *    'PATH_INFO': Uses $_SERVER['PATH_INFO']
-     *
-     * WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
-     */
-    public string $uriProtocol = 'REQUEST_URI';
+        /**
+         * --------------------------------------------------------------------------
+         * Index File
+         * --------------------------------------------------------------------------
+         *
+         * Normalmente, este será o seu arquivo `index.php`, a menos que
+         * você o tenha renomeado. Se você configurou seu servidor web para
+         * remover esse arquivo das URIs do seu site, defina essa variável
+         * como uma string vazia.
+         */
+        public string $indexPage = 'index.php';
 
-    /*
-    |--------------------------------------------------------------------------
-    | Allowed URL Characters
-    |--------------------------------------------------------------------------
-    |
-    | This lets you specify which characters are permitted within your URLs.
-    | When someone tries to submit a URL with disallowed characters they will
-    | get a warning message.
-    |
-    | As a security measure you are STRONGLY encouraged to restrict URLs to
-    | as few characters as possible.
-    |
-    | By default, only these are allowed: `a-z 0-9~%.:_-`
-    |
-    | Set an empty string to allow all characters -- but only if you are insane.
-    |
-    | The configured value is actually a regular expression character group
-    | and it will be used as: '/\A[<permittedURIChars>]+\z/iu'
-    |
-    | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
-    |
-    */
-    public string $permittedURIChars = 'a-z 0-9~%.:_\-';
+        /**
+         * --------------------------------------------------------------------------
+         * URI PROTOCOL
+         * --------------------------------------------------------------------------
+         *
+         * Este item determina qual variável global do servidor deve ser
+         * usada para obter a string da URI. A configuração padrão 'REQUEST_URI'
+         * funciona para a maioria dos servidores. Se os seus links não parecerem
+         * funcionar, experimente uma das outras opções disponíveis:
+         *
+         *  'REQUEST_URI': Uses $_SERVER['REQUEST_URI']
+         * 'QUERY_STRING': Uses $_SERVER['QUERY_STRING']
+         *    'PATH_INFO': Uses $_SERVER['PATH_INFO']
+         *
+         * WARNING: Se você definir isso como 'PATH_INFO', as
+         *          URIs sempre terão a codificação URL decodificada!
+         */
+        public string $uriProtocol = 'REQUEST_URI';
 
-    /**
-     * --------------------------------------------------------------------------
-     * Default Locale
-     * --------------------------------------------------------------------------
-     *
-     * The Locale roughly represents the language and location that your visitor
-     * is viewing the site from. It affects the language strings and other
-     * strings (like currency markers, numbers, etc), that your program
-     * should run under for this request.
-     */
-    public string $defaultLocale = 'en';
+        /**
+         *--------------------------------------------------------------------------
+         * Allowed URL Characters
+         *--------------------------------------------------------------------------
+         *
+         * Isso permite especificar quais caracteres são permitidos
+         * nas suas URLs. Quando alguém tentar enviar uma URL com
+         * caracteres não permitidos, receberá uma mensagem de aviso.
+         *
+         * Como medida de segurança, recomenda-se fortemente limitar
+         * as URLs ao menor número possível de caracteres.
+         *
+         * Por padrão, apenas estes são permitidos: `a-z 0-9~%.:_-`
+         *
+         * Defina uma string vazia para permitir todos os
+         * caracteres — mas apenas se você for louco.
+         *
+         * O valor configurado é, na verdade, um grupo de caracteres de
+         * expressão regular e será usado como: '/\A[<permittedURIChars>]+\z/iu'
+         *
+         * NÃO ALTERE ISSO A MENOS QUE COMPREENDA TOTALMENTE AS REPERCUSSÕES!!
+         *
+         */
+        public string $permittedURIChars = 'a-z 0-9~%.:_\-';
 
-    /**
-     * --------------------------------------------------------------------------
-     * Negotiate Locale
-     * --------------------------------------------------------------------------
-     *
-     * If true, the current Request object will automatically determine the
-     * language to use based on the value of the Accept-Language header.
-     *
-     * If false, no automatic detection will be performed.
-     */
-    public bool $negotiateLocale = false;
+        /**
+         * --------------------------------------------------------------------------
+         * Default Locale
+         * --------------------------------------------------------------------------
+         *
+         * A localidade (Locale) representa, de modo geral, o idioma
+         * e a localização a partir dos quais o visitante está acessando
+         * o site. Ela determina os textos de idioma e outros elementos (como
+         * formatos de moeda, números, etc.) que o seu programa deve utilizar
+         * para essa solicitação.
+         */
+        public string $defaultLocale = 'en';
 
-    /**
-     * --------------------------------------------------------------------------
-     * Supported Locales
-     * --------------------------------------------------------------------------
-     *
-     * If $negotiateLocale is true, this array lists the locales supported
-     * by the application in descending order of priority. If no match is
-     * found, the first locale will be used.
-     *
-     * IncomingRequest::setLocale() also uses this list.
-     *
-     * @var list<string>
-     */
-    public array $supportedLocales = ['en'];
+        /**
+         * --------------------------------------------------------------------------
+         * Negotiate Locale
+         * --------------------------------------------------------------------------
+         *
+         * Se definido como true, o objeto Request atual determinará
+         * automaticamente o idioma a ser utilizado com base no valor
+         * do cabeçalho Accept-Language.
+         *
+         * Se for false, nenhuma detecção automática será realizada.
+         */
+        public bool $negotiateLocale = false;
 
-    /**
-     * --------------------------------------------------------------------------
-     * Application Timezone
-     * --------------------------------------------------------------------------
-     *
-     * The default timezone that will be used in your application to display
-     * dates with the date helper, and can be retrieved through app_timezone()
-     *
-     * @see https://www.php.net/manual/en/timezones.php for list of timezones
-     *      supported by PHP.
-     */
-    public string $appTimezone = 'UTC';
+        /**
+         * --------------------------------------------------------------------------
+         * Supported Locales
+         * --------------------------------------------------------------------------
+         *
+         * Se $negotiateLocale for true, este array lista as
+         * localidades suportadas pela aplicação em ordem
+         * decrescente de prioridade. Se nenhuma correspondência
+         * for encontrada, a primeira localidade será utilizada.
+         *
+         * IncomingRequest::setLocale() também usa esta lista.
+         *
+         * @var list<string>
+         */
+        public array $supportedLocales = ['en'];
 
-    /**
-     * --------------------------------------------------------------------------
-     * Default Character Set
-     * --------------------------------------------------------------------------
-     *
-     * This determines which character set is used by default in various methods
-     * that require a character set to be provided.
-     *
-     * @see http://php.net/htmlspecialchars for a list of supported charsets.
-     */
-    public string $charset = 'UTF-8';
+        /**
+         * --------------------------------------------------------------------------
+         * Application Timezone
+         * --------------------------------------------------------------------------
+         *
+         * O fuso horário padrão que será utilizado em sua aplicação
+         * para exibir datas com o *helper* de datas, e que pode ser
+         * obtido por meio de `app_timezone()`.
+         *
+         * @see https://www.php.net/manual/en/timezones.php para a lista
+         *     de fusos horários suportados pelo PHP.
+         */
+        public string $appTimezone = 'UTC';
 
-    /**
-     * --------------------------------------------------------------------------
-     * Force Global Secure Requests
-     * --------------------------------------------------------------------------
-     *
-     * If true, this will force every request made to this application to be
-     * made via a secure connection (HTTPS). If the incoming request is not
-     * secure, the user will be redirected to a secure version of the page
-     * and the HTTP Strict Transport Security (HSTS) header will be set.
-     */
-    public bool $forceGlobalSecureRequests = false;
+        /**
+         * --------------------------------------------------------------------------
+         * Default Character Set
+         * --------------------------------------------------------------------------
+         *
+         * Isso determina qual conjunto de caracteres é usado por
+         * padrão em vários métodos que exigem o fornecimento de
+         * um conjunto de caracteres.
+         *
+         * @see http://php.net/htmlspecialchars para uma lista de
+         *     conjuntos de caracteres suportados.
+         */
+        public string $charset = 'UTF-8';
 
-    /**
-     * --------------------------------------------------------------------------
-     * Reverse Proxy IPs
-     * --------------------------------------------------------------------------
-     *
-     * If your server is behind a reverse proxy, you must whitelist the proxy
-     * IP addresses from which CodeIgniter should trust headers such as
-     * X-Forwarded-For or Client-IP in order to properly identify
-     * the visitor's IP address.
-     *
-     * You need to set a proxy IP address or IP address with subnets and
-     * the HTTP header for the client IP address.
-     *
-     * Here are some examples:
-     *     [
-     *         '10.0.1.200'     => 'X-Forwarded-For',
-     *         '192.168.5.0/24' => 'X-Real-IP',
-     *     ]
-     *
-     * @var array<string, string>
-     */
-    public array $proxyIPs = [];
+        /**
+         * --------------------------------------------------------------------------
+         * Force Global Secure Requests
+         * --------------------------------------------------------------------------
+         *
+         * Se definido como true, isso forçará que todas as solicitações
+         * feitas a esta aplicação ocorram por meio de uma conexão segura (HTTPS).
+         * Caso a solicitação recebida não seja segura, o usuário será
+         * redirecionado para uma versão segura da página e o cabeçalho
+         * HTTP Strict Transport Security (HSTS) será definido.
+         */
+        public bool $forceGlobalSecureRequests = false;
 
-    /**
-     * --------------------------------------------------------------------------
-     * Content Security Policy
-     * --------------------------------------------------------------------------
-     *
-     * Enables the Response's Content Secure Policy to restrict the sources that
-     * can be used for images, scripts, CSS files, audio, video, etc. If enabled,
-     * the Response object will populate default values for the policy from the
-     * `ContentSecurityPolicy.php` file. Controllers can always add to those
-     * restrictions at run time.
-     *
-     * For a better understanding of CSP, see these documents:
-     *
-     * @see http://www.html5rocks.com/en/tutorials/security/content-security-policy/
-     * @see http://www.w3.org/TR/CSP/
-     */
-    public bool $CSPEnabled = false;
-}
+        /**
+         * --------------------------------------------------------------------------
+         * Reverse Proxy IPs
+         * --------------------------------------------------------------------------
+         *
+         * If your server is behind a reverse proxy, you must whitelist the proxy
+         * IP addresses from which CodeIgniter should trust headers such as
+         * X-Forwarded-For or Client-IP in order to properly identify
+         * the visitor's IP address.
+         *
+         * You need to set a proxy IP address or IP address with subnets and
+         * the HTTP header for the client IP address.
+         *
+         * Here are some examples:
+         *     [
+         *         '10.0.1.200'     => 'X-Forwarded-For',
+         *         '192.168.5.0/24' => 'X-Real-IP',
+         *     ]
+         *
+         * @var array<string, string>
+         */
+        public array $proxyIPs = [];
+
+        /**
+         * --------------------------------------------------------------------------
+         * Content Security Policy
+         * --------------------------------------------------------------------------
+         *
+         * Enables the Response's Content Secure Policy to restrict the sources that
+         * can be used for images, scripts, CSS files, audio, video, etc. If enabled,
+         * the Response object will populate default values for the policy from the
+         * `ContentSecurityPolicy.php` file. Controllers can always add to those
+         * restrictions at run time.
+         *
+         * For a better understanding of CSP, see these documents:
+         *
+         * @see http://www.html5rocks.com/en/tutorials/security/content-security-policy/
+         * @see http://www.w3.org/TR/CSP/
+         */
+        public bool $CSPEnabled = false;
+    }
